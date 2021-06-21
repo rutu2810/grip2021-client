@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Axios from "../apiCalls";
 import AddCustomer from "./AddCustomer";
 import { useHistory } from "react-router-dom";

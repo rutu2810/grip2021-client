@@ -1,9 +1,4 @@
 import React from "react";
-import { Redirect } from "react-router-dom";
-
-const redirect = (path) => {
-  return <Redirect to={path} />;
-};
 
 function Home() {
   return (

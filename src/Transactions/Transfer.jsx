@@ -41,7 +41,7 @@ function Transfer() {
     Axios.get("/api/customers")
       .then((httpData) => httpData.data)
       .then((data) => {
-        data = data.filter((customer) => customer._id != params.get("from"));
+        data = data.filter((customer) => customer._id !== params.get("from"));
         setCustData({
           loading: false,
           cust: data,
@@ -55,12 +55,12 @@ function Transfer() {
           error: err,
         })
       );
-  }, []);
+  });
   const transferForm = useFormik({
     initialValues: { fromId: params.get("from"), toId: "", amount: "" },
     validate: (values) => {
       let errors = {};
-      if (values.amount == "") {
+      if (values.amount === "") {
         errors.amount = "Amount is required";
       } else if (!parseFloat(values.amount)) {
         errors.amount = "Amount must be a number.";
@@ -100,7 +100,7 @@ function Transfer() {
     if (custData.cust.length > 0) {
       transferForm.setFieldValue("toId", custData.cust[0]._id);
     }
-  }, [custData]);
+  }, [custData, transferForm]);
   return (
     <div className="container my-5">
       <Card>
